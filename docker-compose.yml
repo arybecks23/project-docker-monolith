@@ -11,19 +11,20 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
 
-  # server:
-  #   image: postgrest/postgrest
-  #   ports:
-  #     - "3000:3000"
-  #   links:
-  #     - db:db
-  #   environment:
-  #     PGRST_DB_URI: postgres://app_user:secret@db:5432/postgres
-  #     PGRST_DB_SCHEMA: public
-  #     PGRST_DB_ANON_ROLE: app_user #In production this role should not be the same as the one used for the connection
-  #     PGRST_SERVER_PROXY_URI: "http://localhost:3000"
-  #   depends_on:
-  #     - db
+  server:
+    image: postgrest/postgrest
+    ports:
+      - "3000:3000"
+    links:
+      - db:db
+    environment:
+      PGRST_DB_URI: postgres://app_user:secret@db:5432/postgres
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: app_user #In production this role should not be the same as the one used for the connection
+      PGRST_SERVER_PROXY_URI: "http://127.0.0.1:3000"
+    depends_on:
+      - db
+
   db:
     image: postgres
     ports:
