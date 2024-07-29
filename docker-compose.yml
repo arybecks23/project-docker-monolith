@@ -11,7 +11,7 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
 
-  server:
+  postgrest:
     image: postgrest/postgrest
     ports:
       - "3000:3000"
@@ -23,6 +23,7 @@ services:
       PGRST_DB_SCHEMA: api
       PGRST_DB_ANON_ROLE: web_anon #In production this role should not be the same as the one used for the connection
       PGRST_SERVER_PROXY_URI: "http://127.0.0.1:3000"
+      PGRST_JWT_SECRET: "e697b16afcaabc76bad0ce15277d7ed555c59e1a7cbea5470a90892e59a23504"
     depends_on:
       - db
 
@@ -62,7 +63,7 @@ services:
   #     - "8080"
   #   environment:
   #     API_URL: http://127.0.0.1:3000/
-  # Uncomment this if you want to persist the data.
+
 volumes:
   data:
   letsencrypt:
