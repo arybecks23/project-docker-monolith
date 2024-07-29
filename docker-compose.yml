@@ -67,4 +67,4 @@ volumes:
   data:
   letsencrypt:
   db-data:
-  # pgadmin-data:
+  pgadmin-data:
