@@ -36,6 +36,8 @@ services:
       # POSTGRES_INITDB_WALDIR:
       # POSTGRES_HOST_AUTH_METHOD:
       # PGDATA:
+    depends_on:
+      - db
 
   db:
     image: postgres
