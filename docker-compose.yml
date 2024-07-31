@@ -39,8 +39,6 @@ services:
       # PGDATA:
     volumes:
       - db-data:/var/lib/postgresql/data
-    depends_on:
-      - db
 
   db:
     image: postgres:16
@@ -84,4 +82,3 @@ volumes:
   letsencrypt:
   db-data:
   pgadmin-data:
-  data-volume:
