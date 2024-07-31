@@ -39,9 +39,6 @@ services:
       # PGDATA:
     volumes:
       - db-data:/var/lib/postgresql/data
-    networks:
-      - backend
-
   db:
     image: postgres:16
     ports:
@@ -54,8 +51,8 @@ services:
       PGDATA: /var/lib/postgresql/data
     volumes:
       - db-data:/var/lib/postgresql/data
-    networks:
-      - backend
+    depends_on:
+      - postgis
 
   pgadmin:
     container_name: pgadmin4_container
@@ -80,9 +77,6 @@ services:
   #     - "8080"
   #   environment:
   #     API_URL: http://127.0.0.1:3000/
-
-networks:
-  backend:
 
 volumes:
   data:
