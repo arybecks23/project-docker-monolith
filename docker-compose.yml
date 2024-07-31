@@ -26,6 +26,16 @@ services:
       PGRST_JWT_SECRET: "e697b16afcaabc76bad0ce15277d7ed555c59e1a7cbea5470a90892e59a23504"
     depends_on:
       - db
+  postgis:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: app_user
+      POSTGRES_DB: postgres
+      # POSTGRES_INITDB_ARGS:
+      # POSTGRES_INITDB_WALDIR:
+      # POSTGRES_HOST_AUTH_METHOD:
+      # PGDATA:
 
   db:
     image: postgres
