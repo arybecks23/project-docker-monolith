@@ -1,4 +1,4 @@
-version: "3.8"
+#version: "3.8"
 services:
   nginx-manager:
     image: "jc21/nginx-proxy-manager:latest"
@@ -84,3 +84,4 @@ volumes:
   letsencrypt:
   db-data:
   pgadmin-data:
+  data-volume:
