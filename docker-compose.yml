@@ -68,6 +68,15 @@ services:
   #   environment:
   #     API_URL: http://127.0.0.1:3000/
 
+  vnstat:
+    image: vergoh/vnstat:2.12
+    restart: unless-stopped
+    environment:
+      HTTP_PORT: 0
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
 volumes:
   data:
   letsencrypt:
