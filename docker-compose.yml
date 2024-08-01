@@ -39,8 +39,6 @@ services:
       # PGDATA:
     volumes:
       - db-data:/var/lib/postgresql/data
-    depends_on:
-      - db
 
   db:
     image: postgres:16
@@ -54,6 +52,8 @@ services:
       PGDATA: /var/lib/postgresql/data
     volumes:
       - db-data:/var/lib/postgresql/data
+    depends_on:
+      - postgis
 
   pgadmin:
     container_name: pgadmin4_container
