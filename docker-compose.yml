@@ -67,6 +67,8 @@ services:
       - "db:pgsql-server"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - db
 
   # swagger:
   #   image: swaggerapi/swagger-ui
