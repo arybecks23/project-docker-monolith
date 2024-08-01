@@ -41,7 +41,7 @@ services:
       - db-data:/var/lib/postgresql/data
 
   db:
-    image: postgres
+    image: postgres:16
     ports:
       - "5432:5432"
     environment:
